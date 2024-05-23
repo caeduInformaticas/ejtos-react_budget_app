@@ -76,6 +76,12 @@ export const AppReducer = (state, action) => {
     }
 };
 
+const currencies = [
+    { symbol: '$', name: 'Dollar' },
+    { symbol: '£', name: 'Pound' },
+    { symbol: '€', name: 'Euro' },
+    { symbol: 'R', name: 'Rupia' },
+]
 // 1. Sets the initial state when the app loads
 const initialState = {
     budget: 2000,
@@ -86,13 +92,8 @@ const initialState = {
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
     ],
-    currency: { symbol: '£', name: 'Euro' },
-    currencies: [
-        { symbol: '$', name: 'Dollar' },
-        { symbol: '£', name: 'Pound' },
-        { symbol: '€', name: 'Euro' },
-        { symbol: 'R', name: 'Rupia' },
-    ]
+    currency: currencies[3],
+    currencies
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state

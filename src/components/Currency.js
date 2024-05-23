@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Currency = () => {
@@ -13,13 +13,17 @@ const Currency = () => {
             payload: selected,
         });
     }
+    const getValue = () => {
+        return currencies.findIndex(c => c.symbol === currency.symbol)
+    }
+
     return (
         <div className='alert alert-secondary'>
             <div className="input-group-prepend">
                 <label className="input-group-text" htmlFor="inputCurrency">Currency {currency.symbol} {currency.name}</label>
             </div>
-            <select className="custom-select" id="inputCurrency" onChange={updateCurrency}>
-                {currencies.map(({symbol, name}, index) => <option value={index} >{symbol} {name}</option>)}
+            <select value={getValue()} className="custom-select" id="inputCurrency" onChange={updateCurrency}>
+                {currencies.map(({symbol, name}, index) => <option value={index} key={index} >{symbol} {name}</option>)}
             </select>
         </div>
     )
